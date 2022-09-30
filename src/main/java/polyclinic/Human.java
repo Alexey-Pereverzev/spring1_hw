@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component("human")
 @Scope("prototype")
-public class Human implements IHuman {
+public class Human implements IHuman{
 
 
     @Autowired
@@ -22,7 +22,10 @@ public class Human implements IHuman {
 
     @Override
     public void visitRegistry() {
-        registry.giveMedicalCard(name);
-        System.out.println("Ура, нашлась моя карточка!");
+        if (registry.giveMedicalCard(name)) {
+            System.out.println("Ура, нашлась моя карточка!");
+        } else {
+            System.out.println("Как жаль! Надо заново делать документы!");
+        }
     }
 }

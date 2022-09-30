@@ -16,7 +16,7 @@ public class Registry implements IRegistry {
     }
 
     @Override
-    public void giveMedicalCard(String name) {
-        archive.getDocument(name);
+    public boolean giveMedicalCard(String name) {
+        return archive.getDocument(name);
     }
 }

@@ -1,5 +1,5 @@
 package polyclinic;
 
 public interface IRegistry {
-    void giveMedicalCard(String name);
+    boolean giveMedicalCard(String name);
 }

@@ -7,9 +7,9 @@ import java.util.HashMap;
 
 @Component("archive")
 @Scope("prototype")
-public class HospitalArchive implements IDatabase {
+public class HospitalArchive implements IDatabase{
 
-    private final HashMap<String, IDocument> catalogue;
+    private final HashMap<String,IDocument> catalogue;
 
     public HospitalArchive(IDocument document) {
         this.catalogue = new HashMap<>();
@@ -18,8 +18,14 @@ public class HospitalArchive implements IDatabase {
 
 
     @Override
-    public void getDocument(String name) {
+    public boolean getDocument(String name) {
         IDocument document = catalogue.get(name);
-        document.getContent();
+        if (document!=null) {
+            document.getContent();
+            return true;
+        } else {
+            System.out.println("Вашей карточки нет!");
+            return false;
+        }
     }
 }
